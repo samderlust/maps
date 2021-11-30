@@ -803,4 +803,12 @@ class MethodChannelMapboxGl extends MapboxGlPlatform {
     super.dispose();
     _channel.setMethodCallHandler(null);
   }
+
+  @override
+  Future<void> addSource(String sourceId, Source source) async {
+    await _channel.invokeMethod('source#add', <String, dynamic>{
+      'sourceId': sourceId,
+      'source': source.toJson(),
+    });
+  }
 }
