@@ -15,6 +15,10 @@ buildscript {
                 create<BasicAuthentication>("basic")
             }
         }
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
+        jcenter()
     }
 
     dependencies {
@@ -40,6 +44,10 @@ rootProject.allprojects {
                 password = token
             }
         }
+        maven {
+            url = uri("https://oss.jfrog.org/artifactory/oss-snapshot-local/")
+        }
+        jcenter()
     }
 }
 
