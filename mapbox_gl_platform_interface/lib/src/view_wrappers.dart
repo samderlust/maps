@@ -57,7 +57,7 @@ class TextureAndroidViewControllerWrapper
   /// size is the view's initial size in logical pixel. size can be omitted
   /// if the concrete implementation doesn't require an initial size to create
   /// the platform view.
-  Future<void> create({Size? size}) async {
+  Future<void> create({Offset? position, Size? size}) async {
     await _controller.create();
     awaitingCreation = false;
     if (size != null) {
@@ -123,6 +123,10 @@ class TextureAndroidViewControllerWrapper
 
   // @override
   int get viewId => _controller.viewId;
+
+  @override
+  // TODO: implement requiresViewComposition
+  bool get requiresViewComposition => throw UnimplementedError();
 }
 
 class AndroidViewWithWrappedController extends StatefulWidget {
